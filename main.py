@@ -71,5 +71,12 @@ with open('russian_artists.txt', 'w') as f, open('foreign_artists.txt', 'w') as 
             hash[artist] += 1
         else:
             hash[artist] = 1 # если нет, то создаем
-    print(hash)
+    cnt = 1
+    for a, b in hash.items():
+        if cnt != 5:
+            print(f'{a} выпустил {hash[a]} песен.') # показываем первые 5 исполнителей
+        else:
+            break
+        cnt += 1
+
 

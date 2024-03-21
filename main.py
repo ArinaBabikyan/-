@@ -58,5 +58,18 @@ with open('russian_artists.txt', 'w') as f, open('foreign_artists.txt', 'w') as 
     for i in foreign_artists:
         print(i, file=f1) # записываем в файлы имена артистов соответственно
 
-
+# 5 задача
+    hash = {}
+    for i in li:
+        artist = i[1]
+        if "feat." in artist:
+            artist = artist.split('feat.')[0] # проверяем написан ли трек одним человеком, если нет, то берем первое имя
+        elif " & " in artist:
+            artist = artist.split('&')[0] # так же проверяем единственный ли артист
+        print(artist)
+        if artist in hash.keys(): # пополняем нашу таблицу, если артист уже в ней есть то прибалвяем песню
+            hash[artist] += 1
+        else:
+            hash[artist] = 1 # если нет, то создаем
+    print(hash)
 

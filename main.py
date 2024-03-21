@@ -37,3 +37,24 @@ with open('songs.csv') as f:
         else:
             print('К сожалению, ничего не удалось найти') # срабатывает если артиста не было найдено
         a = input()
+# номер 4
+with open('russian_artists.txt', 'w') as f, open('foreign_artists.txt', 'w') as f1:
+    letter = 'йцукенгшщзхъёфывапролджэячсмитьбю'# выписали русский алфавит, чтобы осуществлять проверку
+    russian_artists = []
+    foreign_artists = []
+    for i in li[1:]:
+        for j in i[1]:
+            if j in letter:
+                russian_artists.append(i[1]) # создаем список русских артистов если хоть одна буква в имени артиста русская
+                break
+        else:
+            foreign_artists.append(i[1]) # иначе добавляем имя в список иностранных артистов
+    print('Количество российских исполнителей:', len(russian_artists)) # распечатываем по условию ответ, кол-во рос. исполнителей
+    print('Количество иностранных исполнителей:', len(foreign_artists)) # кол-во иностранных исполнителей
+    for i in russian_artists:
+        print(i, file=f) # записываем в файлы имена артистов соответственно
+    for i in foreign_artists:
+        print(i, file=f1) # записываем в файлы имена артистов соответственно
+
+
+
